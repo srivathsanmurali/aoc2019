@@ -1,18 +1,29 @@
 # AOC 2019
 My solutions to the problems.
-
-For each day there are two problems,
+*Input is given as stdin*
 ```
 dayXX
-|- p1.go
-|- p2.go
+|- go
+  |- p1.go
+  |- p2.go
+|- c
+  |- p1.c
+  |- p2.c
 |- input.txt
 ```
 
-To run the part for a day.
+**To run the go code**
 ```
-cat input.txt | go run p1.go
-cat input.txt | go run p2.go
+cd dayXX/go
+go run p1.go < ../input.txt
+go run p2.go < ../input.txt
 ```
 
-Input is given as stdin
+**To run the c code**
+```
+cd dayXX/c
+make all
+./p1 < ../input.txt
+./p2 < ../input.txt
+make clean
+```
