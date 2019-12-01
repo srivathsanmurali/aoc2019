@@ -9,6 +9,9 @@ dayXX
 |- c
   |- p1.c
   |- p2.c
+|- elixir
+  |- p1.exs
+  |- p2.exs
 |- input.txt
 ```
 
@@ -26,4 +29,11 @@ make all
 ./p1 < ../input.txt
 ./p2 < ../input.txt
 make clean
+```
+
+**To run the elixir code**
+```
+cd dayXX/elixir
+elixir p1.exs < ../input.txt
+elixir p2.exs < ../input.txt
 ```
