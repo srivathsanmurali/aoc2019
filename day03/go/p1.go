@@ -86,8 +86,7 @@ func parse_route(reader *bufio.Reader) []line {
 	}
 
 	cur_loc := loc{x: 0, y: 0}
-	var path []loc
-	path = append(path, cur_loc)
+	var path []line
 	for _, val := range strings.FieldsFunc(cable, f) {
 		var dir string
 		var mag int
@@ -110,20 +109,11 @@ func parse_route(reader *bufio.Reader) []line {
 		}
 
 		new_loc := loc{x: cur_loc.x + diff.x, y: cur_loc.y + diff.y}
-		path = append(path, new_loc)
+		path = append(path, line{cur_loc, new_loc})
 		cur_loc = new_loc
 	}
 
-	return get_lines(path)
-}
-
-func get_lines(path []loc) []line {
-	var lines []line
-	for i := 1; i < len(path); i++ {
-		lines = append(lines, line{path[i-1], path[i]})
-	}
-
-	return lines
+	return path
 }
 
 func get_intersections(pathA, pathB []line) []loc {
